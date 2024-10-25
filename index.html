@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Admin UI</h1>
+
+    <!-- Search bar -->
+    <input type="text" id="search" placeholder="Search by name, email or role" onkeypress="searchHandler(event)" />
+    <div id="loading-spinner" class="spinner" style="display: none;"></div>
+
+    <!-- Table structure -->
+    <table>
+      <thead>
+        <tr>
+          <th><input type="checkbox" id="select-all" /></th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="user-table">
+        <!-- Rows will be dynamically inserted here -->
+      </tbody>
+    </table>
+
+    <!-- Action Buttons and Pagination Controls -->
+    <div class="controls">
+      <div class="bulk-actions">
+        <button id="change-role">Change Role</button>
+        <button id="delete-selected">Delete Selected</button>
+      </div>
+      <div class="pagination">
+        <button class="first-page">First</button>
+        <button class="previous-page">Previous</button>
+        <button class="next-page">Next</button>
+        <button class="last-page">Last</button>
+      </div>
+      <div class="rows-per-page">
+        <label for="rows-per-page">Rows per page:</label>
+        <select id="rows-per-page" onchange="changeRowsPerPage(event)">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
